@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Player from './Player/Player';
+import Score from './Score/Score';
+import Time from'./Time/Time';
+import Commentator from './Commentator/Commentator'
 
 class Buttons extends React.Component {
   render(){
     return(
       <div>
-        <button id='playButton' onClick={this.props.playVideo}>Play!</button>
+        <button className="nes-btn is-primary" id='playButton' onClick={this.props.playVideo}>Play!</button>
 
       </div>
     );
@@ -14,6 +17,12 @@ class Buttons extends React.Component {
 
 class App extends Component {
 
+   constructor(){
+     super();
+     this.state = {
+       video : "/stubasa_run.mp4"
+     }
+   }
 
 
   playVideo() {
@@ -22,21 +31,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="nes-container is-rounded is-dark">
-       <div class="nes-container is-rounded is-dark" style={{ maxWidth: '20%', maxHeight: '5%' }}>
+      <div style={{display: "flex", flexDirection: 'column', justifyContent: 'flex-start'}}>
+        <div className="nes-container is-rounded is-dark">
           Oliver Atom
         </div>
-      <video ref="vidRef" src={process.env.PUBLIC_URL + "/stubasa_run.mp4"} type="video/mp4"></video>
-      <div>
-      <Buttons playVideo={this.playVideo.bind(this)} />
-      </div>
+        <video ref="vidRef" src={process.env.PUBLIC_URL + this.state.video } type="video/mp4"/>
+        <Buttons playVideo={this.playVideo.bind(this)} />
+      <div style={{display: "flex", flexDirection: 'row',  justifyContent: 'flex-start'}}>
         <Player/>
-        <div class="nes-container is-rounded is-dark" style={{ maxWidth: '7%', maxHeight: '7%' }}>
-          ARG 1.<p></p>
-          BRA 1.
+        <div style={{display: "flex", flexDirection: 'column'}}>
+          <Time/>
+          <Score localName={'ARG'} visitorName={'BRA'} />
         </div>
-        <div className="nes-container is-rounded is-dark">
-          <p>{" El taco, no. Hace la personal y se va. Se va. Se va Martínez para el gol, y va el tercero y va el tercero y gol de River, gol de River, gol de River."}</p>
+        <div style={{display: "flex", flexDirection: 'column'}}>
+        <Commentator/>
+        </div>
         </div>
       </div>
      

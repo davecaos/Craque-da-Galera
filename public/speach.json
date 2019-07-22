@@ -1,0 +1,6 @@
+{
+    "pass" : { 
+        "text": ["[%s] pass."],
+        "vars": ["player"]
+    }
+}
