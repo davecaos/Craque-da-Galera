@@ -1,5 +1,7 @@
 ## A React JRPG Famicon 8 Bit Doppelgänger
 
+![PhotoFunia-1563766863](https://user-images.githubusercontent.com/6124495/61674770-c2ea8a00-accb-11e9-9e5a-956a4cbf203e.jpg)
+
 In the project directory, you can run:
 
 ### `npm start`
